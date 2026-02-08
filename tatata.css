@@ -1,23 +1,14 @@
-:root{
-  --text: rgba(255,255,255,0.92);
-  --muted: rgba(255,255,255,0.70);
-  --glass: rgba(15, 20, 40, 0.55);
-  --stroke: rgba(255,255,255,0.14);
-  --accent: rgba(120, 160, 255, 0.95);
-  --accent2: rgba(80, 220, 255, 0.60);
-}
-
-*{ box-sizing: border-box; }
-html, body{ height: 100%; }
+* { box-sizing: border-box; }
+html, body { height: 100%; }
 
 body{
   margin: 0;
   font-family: Arial, sans-serif;
-  color: var(--text);
+  color: #fff;
 
-  /* ФОН-ПЕЙЗАЖ + затемнение */
+  /* фон-пейзаж + затемнение */
   background:
-    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.60)),
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.6)),
     url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1920&q=80");
   background-size: cover;
   background-position: center;
@@ -25,26 +16,27 @@ body{
   background-attachment: fixed;
 }
 
-/* Центрирование */
 .wrap{
   min-height: 100%;
-  display: grid;
-  place-items: center;
-  padding: 28px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
 }
 
-/* СТЕКЛЯННАЯ КАРТОЧКА */
+/* стеклянная карточка */
 .card{
-  width: min(860px, 96vw);
-  background: var(--glass);
-  border: 1px solid var(--stroke);
+  width: 860px;
+  max-width: 96vw;
+  background: rgba(15, 20, 40, 0.55);
+  border: 1px solid rgba(255,255,255,0.14);
   border-radius: 18px;
   padding: 22px;
   backdrop-filter: blur(10px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.55);
 }
 
-/* Верх */
+/* верх */
 .top{
   display: flex;
   gap: 18px;
@@ -58,26 +50,13 @@ body{
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid rgba(255,255,255,0.22);
-  outline: 2px solid rgba(120,160,255,0.35);
-  outline-offset: 2px;
 }
 
-.title h1{
-  margin: 0 0 6px;
-  font-size: 30px;
-}
-.role{
-  margin: 0 0 6px;
-  color: var(--muted);
-  font-weight: bold;
-}
-.about{
-  margin: 0;
-  color: rgba(255,255,255,0.75);
-  line-height: 1.35;
-}
+.title h1{ margin: 0 0 6px; font-size: 30px; }
+.role{ margin: 0 0 6px; color: rgba(255,255,255,0.7); font-weight: 700; }
+.about{ margin: 0; color: rgba(255,255,255,0.75); line-height: 1.35; }
 
-/* КНОПКИ */
+/* кнопки */
 .buttons{
   margin: 16px 0 8px;
   display: grid;
@@ -87,36 +66,22 @@ body{
 
 .btn{
   text-decoration: none;
-  color: white;
+  color: #fff;
   text-align: center;
   padding: 10px 12px;
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.18);
-  background: linear-gradient(135deg, rgba(40,55,110,0.75), rgba(20,30,70,0.55));
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+  background: rgba(40,55,110,0.7);
+  transition: transform .15s ease, background .15s ease;
 }
-
 .btn:hover{
   transform: translateY(-2px);
-  border-color: rgba(120,160,255,0.65);
-  box-shadow:
-    0 0 18px rgba(120,160,255,0.25),
-    0 14px 30px rgba(0,0,0,0.30);
+  background: rgba(120,160,255,0.85);
 }
 
-.btn:active{
-  transform: translateY(0px) scale(0.99);
-}
+/* проекты */
+.h2{ margin: 18px 0 10px; font-size: 18px; }
 
-/* Заголовок секции */
-.h2{
-  margin: 18px 0 10px;
-  font-size: 18px;
-  color: rgba(255,255,255,0.88);
-}
-
-/* ПРОЕКТЫ */
 .projects{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -128,18 +93,8 @@ body{
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 14px;
   padding: 14px;
-  transition: transform .15s ease, border-color .15s ease;
 }
-
-.project:hover{
-  transform: translateY(-2px);
-  border-color: rgba(80,220,255,0.35);
-}
-
-.project h3{
-  margin: 0 0 6px;
-  font-size: 16px;
-}
+.project h3{ margin: 0 0 6px; font-size: 16px; }
 .project p{
   margin: 0 0 10px;
   color: rgba(255,255,255,0.72);
@@ -147,12 +102,8 @@ body{
   line-height: 1.35;
 }
 
-/* Теги */
-.tags{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
+/* теги */
+.tags{ display: flex; flex-wrap: wrap; gap: 6px; }
 .tags span{
   font-size: 12px;
   padding: 5px 8px;
@@ -161,7 +112,7 @@ body{
   background: rgba(255,255,255,0.06);
 }
 
-/* Подсказка */
+/* подсказка */
 .hint{
   margin: 12px 0 0;
   min-height: 18px;
@@ -169,7 +120,7 @@ body{
   font-size: 13px;
 }
 
-/* АДАПТИВ */
+/* адаптив */
 @media (max-width: 820px){
   .buttons{ grid-template-columns: 1fr 1fr; }
   .projects{ grid-template-columns: 1fr; }
